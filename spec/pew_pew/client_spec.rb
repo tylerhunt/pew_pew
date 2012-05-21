@@ -32,12 +32,18 @@ describe PewPew::Client do
   end
 
   context '#stats' do
+    let(:api_key) { ENV['MAILGUN_API_KEY'] }
+    let(:domain) { ENV['MAILGUN_DOMAIN'] }
     let(:client) { described_class.new }
+
+    around do |example|
+      VCR.use_cassette('stats', erb: { api_key: api_key, domain: domain }, &example)
+    end
 
     before do
       client.configure do |config|
-        config.api_key = ENV['MAILGUN_API_KEY']
-        config.domain = ENV['MAILGUN_DOMAIN']
+        config.api_key = api_key
+        config.domain = domain
       end
     end
 
