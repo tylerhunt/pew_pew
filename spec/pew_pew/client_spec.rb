@@ -30,4 +30,21 @@ describe PewPew::Client do
     its(:endpoint) { should == 'https://api.mailgun.com/v2' }
     its(:user_agent) { should == 'A PewPew Application' }
   end
+
+  context '#stats' do
+    let(:client) { described_class.new }
+
+    before do
+      client.configure do |config|
+        config.api_key = ENV['MAILGUN_API_KEY']
+        config.domain = ENV['MAILGUN_DOMAIN']
+      end
+    end
+
+    subject { client.stats }
+
+    specify { should be_success }
+
+    its(:body) { should match(/{\s+"total_count": 0,\s+"items": \[\]\s+}/) }
+  end
 end

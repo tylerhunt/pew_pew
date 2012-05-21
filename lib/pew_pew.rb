@@ -1,8 +1,9 @@
 require 'pew_pew/version'
 
 module PewPew
-  autoload :Config, 'pew_pew/config'
   autoload :Client, 'pew_pew/client'
+  autoload :Config, 'pew_pew/config'
+  autoload :Connection, 'pew_pew/connection'
 
   extend self
 
