@@ -13,10 +13,19 @@ describe PewPew::Config do
   end
 
   context 'defaults' do
+    its(:adapter) { should == Faraday.default_adapter }
     its(:api_key) { should be_nil }
     its(:domain) { should be_nil }
     its(:endpoint) { should == described_class::ENDPOINT }
     its(:user_agent) { should == described_class::USER_AGENT }
+  end
+
+  context '#adapter=' do
+    specify do
+      expect {
+        subject.adapter = :typhoeus
+      }.to change(subject, :adapter).to(:typhoeus)
+    end
   end
 
   context '#api_key=' do
