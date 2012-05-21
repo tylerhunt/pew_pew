@@ -1,10 +1,13 @@
 # PewPew
 
-TODO: Write a gem description
+A Ruby library for using the [Mailgun] API.
+
+[mailgun]: https://mailgun.net/
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's `Gemfile`:
 
     gem 'pew_pew'
 
@@ -16,9 +19,6 @@ Or install it yourself as:
 
     $ gem install pew_pew
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
