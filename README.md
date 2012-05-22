@@ -20,6 +20,47 @@ Or install it yourself as:
     $ gem install pew_pew
 
 
+## Configuration
+
+You must have a valid API key to use the Mailgun API. If you don't yet have
+one, you can [sign up here][api-key].
+
+[api-key]: http://www.mailgun.net/signup
+
+You can use the following method to configure your API key and domain:
+
+``` ruby
+PewPew.configure do |config|
+  config.api_key = MAILGUN_API_KEY
+  config.domain = MAILGUN_DOMAIN # optional
+end
+```
+
+If you'd like to use multiple instances of the API with different keys, you can
+instantiate `PewPew::Client` directly and treat those instances the same as you
+would the `PewPew` module:
+
+``` ruby
+pew_pew = PewPew::Client.new
+
+pew_pew.configure do |config|
+  config.api_key = MAILGUN_API_KEY
+  config.domain = MAILGUN_DOMAIN # optional
+end
+```
+
+
+## Usage
+
+Once the API key has been configured, resources can be called on the `PewPew`
+module directly or off your client instances:
+
+``` ruby
+PewPew.stats.all # uses the configured domain
+PewPew.stats(domain: domain).all
+```
+
+
 ## Contributing
 
 1. Fork it
