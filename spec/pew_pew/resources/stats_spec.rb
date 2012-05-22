@@ -28,8 +28,8 @@ describe PewPew::Resources::Stats, :resource do
     context 'body' do
       subject { response.body }
 
-      its(['total_count']) { should == 0 }
-      its(['items']) { should == [] }
+      its(:total_count) { should == 0 }
+      its(:items) { should == [] }
     end
   end
 end

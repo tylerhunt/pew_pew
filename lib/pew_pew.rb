@@ -4,6 +4,7 @@ module PewPew
   autoload :Client, 'pew_pew/client'
   autoload :Config, 'pew_pew/config'
   autoload :Connection, 'pew_pew/connection'
+  autoload :Response, 'pew_pew/response'
 
   module Resources
     autoload :Stats, 'pew_pew/resources/stats'
