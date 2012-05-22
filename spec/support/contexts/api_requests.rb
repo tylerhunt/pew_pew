@@ -10,7 +10,7 @@ shared_context 'API request', :resource do
     name = described_class.name.split(/::/).last.downcase
 
     vcr_options = {
-      record: ENV['VCR_RECORD'] || :none,
+      record: (ENV['VCR_RECORD'] || :none).to_sym,
       erb: { api_key: client.config.api_key, domain: client.config.domain }
     }
 
