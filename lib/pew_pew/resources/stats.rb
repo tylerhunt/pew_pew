@@ -3,11 +3,14 @@ module PewPew
     class Stats
       include Connection
 
-      def initialize(client)
+      attr :domain
+
+      def initialize(client, options={})
         @client = client
+        @domain = options[:domain] || config.domain
       end
 
-      def for_domain(domain)
+      def all
         get("#{domain}/stats")
       end
 

@@ -11,8 +11,8 @@ module PewPew
       config
     end
 
-    def stats(domain=config.domain)
-      (@stats ||= Resources::Stats.new(self)).for_domain(domain)
+    def stats(options={})
+      @stats ||= Resources::Stats.new(self, options)
     end
   end
 end

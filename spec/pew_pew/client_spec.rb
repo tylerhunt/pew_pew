@@ -36,9 +36,6 @@ describe PewPew::Client do
 
     before(:each) { PewPew::Resources::Stats.stub(:new).and_return(endpoint) }
 
-    specify do
-      endpoint.should_receive(:for_domain).with(subject.config.domain)
-      subject.stats
-    end
+    its(:stats) { should == endpoint }
   end
 end
