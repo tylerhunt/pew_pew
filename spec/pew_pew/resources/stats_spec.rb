@@ -19,10 +19,17 @@ describe PewPew::Resources::Stats, :resource do
   end
 
   context '#all' do
-    subject { resource.all }
+    let(:response) { resource.all }
+
+    subject { response }
 
     specify { should be_success }
 
-    its(:body) { should match(/{\s+"total_count": 0,\s+"items": \[\]\s+}/) }
+    context 'body' do
+      subject { response.body }
+
+      its(['total_count']) { should == 0 }
+      its(['items']) { should == [] }
+    end
   end
 end

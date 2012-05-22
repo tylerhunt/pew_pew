@@ -1,4 +1,5 @@
 require 'faraday'
+require 'faraday_middleware'
 
 module PewPew
   module Connection
@@ -13,6 +14,7 @@ module PewPew
         headers: { user_agent: config.user_agent }
       ) do |builder|
         builder.basic_auth(:api, config.api_key)
+        builder.response(:json)
         builder.adapter(config.adapter)
       end
     end

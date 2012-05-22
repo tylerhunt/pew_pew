@@ -8,6 +8,7 @@ Gem::Specification.new do |gem|
   gem.author = 'Tyler Hunt'
 
   gem.add_dependency 'faraday', '~> 0.8.0'
+  gem.add_dependency 'faraday_middleware', '~> 0.8.0'
   gem.add_development_dependency 'rspec', '~> 2.6'
   gem.add_development_dependency 'vcr', '~> 2.0'
 
