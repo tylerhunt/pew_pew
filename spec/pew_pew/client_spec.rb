@@ -32,12 +32,13 @@ describe PewPew::Client do
   end
 
   context '#stats' do
-    include_context 'API request'
+    let!(:endpoint) { PewPew::Resources::Stats.new(subject) }
 
-    subject { client.stats }
+    before(:each) { PewPew::Resources::Stats.stub(:new).and_return(endpoint) }
 
-    specify { should be_success }
-
-    its(:body) { should match(/{\s+"total_count": 0,\s+"items": \[\]\s+}/) }
+    specify do
+      endpoint.should_receive(:for_domain).with(subject.config.domain)
+      subject.stats
+    end
   end
 end

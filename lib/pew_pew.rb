@@ -5,6 +5,10 @@ module PewPew
   autoload :Config, 'pew_pew/config'
   autoload :Connection, 'pew_pew/connection'
 
+  module Resources
+    autoload :Stats, 'pew_pew/resources/stats'
+  end
+
   extend self
 
   def respond_to?(method, include_private=false)

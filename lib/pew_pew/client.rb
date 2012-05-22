@@ -12,7 +12,7 @@ module PewPew
     end
 
     def stats(domain=config.domain)
-      get("#{domain}/stats")
+      (@stats ||= Resources::Stats.new(self)).for_domain(domain)
     end
   end
 end

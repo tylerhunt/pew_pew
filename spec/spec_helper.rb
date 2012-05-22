@@ -6,12 +6,12 @@ require 'pew_pew'
 ENV['MAILGUN_API_KEY'] ||= 'key-02n9f3ijl9sm9u97-8p7r-d7-15q-ui1'
 ENV['MAILGUN_DOMAIN'] ||= 'pewpew.mailgun.org'
 
-Dir[File.expand_path('../support/**/*.rb', __FILE__)].each do |file|
-  require(file)
-end
-
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
+end
+
+Dir[File.expand_path('../support/**/*.rb', __FILE__)].each do |file|
+  require(file)
 end
