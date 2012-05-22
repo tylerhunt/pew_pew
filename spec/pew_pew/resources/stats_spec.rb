@@ -25,11 +25,8 @@ describe PewPew::Resources::Stats, :resource do
 
     specify { should be_success }
 
-    context 'body' do
-      subject { response.body }
-
-      its(:total_count) { should == 0 }
-      its(:items) { should == [] }
-    end
+    its(:status) { should == 200 }
+    its(:total_count) { should == 0 }
+    its(:items) { should == [] }
   end
 end
