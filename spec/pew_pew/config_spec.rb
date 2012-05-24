@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PewPew::Config do
   {
-    ENDPOINT: 'https://api.mailgun.net/v2',
+    BASE_URI: 'https://api.mailgun.net/v2',
     USER_AGENT: "PewPew Ruby Gem #{PewPew::VERSION}"
   }.each do |constant, value|
     context constant do
@@ -12,20 +12,11 @@ describe PewPew::Config do
     end
   end
 
+  subject { Class.new { include PewPew::Config }.new }
+
   context 'defaults' do
-    its(:adapter) { should == Faraday.default_adapter }
     its(:api_key) { should be_nil }
     its(:domain) { should be_nil }
-    its(:endpoint) { should == described_class::ENDPOINT }
-    its(:user_agent) { should == described_class::USER_AGENT }
-  end
-
-  context '#adapter=' do
-    specify do
-      expect {
-        subject.adapter = :typhoeus
-      }.to change(subject, :adapter).to(:typhoeus)
-    end
   end
 
   context '#api_key=' do
@@ -41,22 +32,6 @@ describe PewPew::Config do
       expect {
         subject.domain = 'pewpew.mailgun.org'
       }.to change(subject, :domain).to('pewpew.mailgun.org')
-    end
-  end
-
-  context '#endpoint=' do
-    specify do
-      expect {
-        subject.endpoint = 'https://api.mailgun.com/v2'
-      }.to change(subject, :endpoint).to('https://api.mailgun.com/v2')
-    end
-  end
-
-  context '#user_agent=' do
-    specify do
-      expect {
-        subject.user_agent = 'A PewPew Application'
-      }.to change(subject, :user_agent).to('A PewPew Application')
     end
   end
 end

@@ -1,23 +1,18 @@
 module PewPew
   module Resources
     class Stats
-      include Connection
+      include Resource
 
       attr :domain
-
-      def initialize(client, options={})
-        @client = client
-        @domain = options[:domain] || config.domain
-      end
 
       def all
         get("#{domain}/stats")
       end
 
-      def config
-        @client.config
+      def domain
+        @domain ||= @options[:domain] || config.domain
       end
-      private :config
+      private :domain
     end
   end
 end
