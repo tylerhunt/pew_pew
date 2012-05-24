@@ -5,4 +5,5 @@ module PewPew
     end
     private :domain
   end
+  private_constant :Domain
 end

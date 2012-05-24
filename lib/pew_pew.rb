@@ -12,10 +12,14 @@ module PewPew
 
   module Resources
     autoload :Logs, 'pew_pew/resources/logs'
+    autoload :Messages, 'pew_pew/resources/messages'
     autoload :Stats, 'pew_pew/resources/stats'
   end
 
+  # @return a memoized instance of the client
+  # @!visibility private
   def self.client
     @client ||= Client.new
   end
+  private_class_method :client
 end
