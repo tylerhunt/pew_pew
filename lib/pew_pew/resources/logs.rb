@@ -3,8 +3,6 @@ module PewPew
     class Logs
       include Resource
 
-      attr :domain
-
       def all
         get("#{domain}/log")
       end
