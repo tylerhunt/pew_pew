@@ -8,8 +8,12 @@ module PewPew
       config.extend(Config)
     end
 
+    def logs(options={})
+      Resources::Logs.new(self, options)
+    end
+
     def stats(options={})
-      @stats ||= Resources::Stats.new(self, options)
+      Resources::Stats.new(self, options)
     end
   end
 end

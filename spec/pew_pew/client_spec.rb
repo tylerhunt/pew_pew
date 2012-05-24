@@ -32,11 +32,12 @@ describe PewPew::Client do
     its(:domain) { should == 'pewpew.mailgun.org' }
   end
 
-  context '#stats' do
-    let!(:resource) { PewPew::Resources::Stats.new(subject) }
-
-    before(:each) { PewPew::Resources::Stats.stub(:new).and_return(resource) }
-
-    its(:stats) { should == resource }
+  {
+    logs: PewPew::Resources::Logs,
+    stats: PewPew::Resources::Stats
+  }.each do |method, resource_class|
+    context "##{method}" do
+      specify { subject.send(method).should be_a(resource_class) }
+    end
   end
 end

@@ -10,6 +10,7 @@ module PewPew
   autoload :Response, 'pew_pew/response'
 
   module Resources
+    autoload :Logs, 'pew_pew/resources/logs'
     autoload :Stats, 'pew_pew/resources/stats'
   end
 
