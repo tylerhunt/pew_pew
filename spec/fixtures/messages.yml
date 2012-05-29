@@ -1,0 +1,146 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailgun.net/v2/<%= domain %>/messages
+    body:
+      encoding: US-ASCII
+      string: to=pewpew%40devoh.com&from=pewpew%40devoh.com&subject=Test&text=This+is+a+test+message.
+    headers:
+      User-Agent:
+      - PewPew Ruby Gem 0.0.1
+      Authorization:
+      - Basic <%= Base64.encode64("api:#{api_key}").strip %>
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - nginx/1.0.14
+      date:
+      - Thu, 24 May 2012 08:00:44 GMT
+      content-type:
+      - application/json
+      connection:
+      - close
+      content-length:
+      - '96'
+      content-disposition:
+      - inline
+    body:
+      encoding: US-ASCII
+      string: ! "{\n  \"message\": \"Queued. Thank you.\",\n  \"id\": \"<20120524080044.27067.73085@<%= domain %>>\"\n}"
+    http_version: 
+  recorded_at: Thu, 24 May 2012 08:00:44 GMT
+- request:
+    method: post
+    uri: https://api.mailgun.net/v2/<%= domain %>/messages
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0DQpDb250ZW50LURpc3Bv
+        c2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InRvIg0KDQpwZXdwZXdAZGV2b2gu
+        Y29tDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QNCkNvbnRlbnQt
+        RGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iZnJvbSINCg0KcGV3cGV3
+        QGRldm9oLmNvbQ0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0DQpD
+        b250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InN1YmplY3Qi
+        DQoNClRlc3QNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdA0KQ29u
+        dGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJ0ZXh0Ig0KDQpU
+        aGlzIGlzIGEgdGVzdCBtZXNzYWdlLg0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0
+        aXBhcnRQb3N0DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5h
+        bWU9ImF0dGFjaG1lbnQiOyBmaWxlbmFtZT0iaW1hZ2UucG5nIg0KQ29udGVu
+        dC1MZW5ndGg6IDY3DQpDb250ZW50LVR5cGU6IGltYWdlL3BuZw0KQ29udGVu
+        dC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQoNColQTkcNChoKAAAADUlI
+        RFIAAAABAAAAAQgGAAAAHxXEiQAAAApJREFUeJxjAAEAAAUAAQ0KLbQAAAAA
+        SUVORK5CYIINCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC0tDQoN
+        Cg==
+    headers:
+      User-Agent:
+      - PewPew Ruby Gem 0.0.1
+      Authorization:
+      - Basic <%= Base64.encode64("api:#{api_key}").strip %>
+      Content-Type:
+      - multipart/form-data;boundary=-----------RubyMultipartPost
+      Content-Length:
+      - '676'
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - nginx/1.0.14
+      date:
+      - Tue, 29 May 2012 23:22:22 GMT
+      content-type:
+      - application/json
+      connection:
+      - close
+      content-length:
+      - '95'
+      content-disposition:
+      - inline
+    body:
+      encoding: US-ASCII
+      string: ! "{\n  \"message\": \"Queued. Thank you.\",\n  \"id\": \"<20120529232222.4550.70051@<%= domain %>>\"\n}"
+    http_version: 
+  recorded_at: Tue, 29 May 2012 23:22:22 GMT
+- request:
+    method: post
+    uri: https://api.mailgun.net/v2/<%= domain %>/messages
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0DQpDb250ZW50LURpc3Bv
+        c2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InRvIg0KDQpwZXdwZXdAZGV2b2gu
+        Y29tDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QNCkNvbnRlbnQt
+        RGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iZnJvbSINCg0KcGV3cGV3
+        QGRldm9oLmNvbQ0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0DQpD
+        b250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InN1YmplY3Qi
+        DQoNClRlc3QNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdA0KQ29u
+        dGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJ0ZXh0Ig0KDQpU
+        aGlzIGlzIGEgdGVzdCBtZXNzYWdlLg0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0
+        aXBhcnRQb3N0DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5h
+        bWU9Imh0bWwiDQoNClRoaXMgaXMgYSB0ZXN0IG1lc3NhZ2UuIDxpbWcgc3Jj
+        PSJjaWQ6aW1hZ2UucG5nIj4NCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0
+        UG9zdA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJp
+        bmxpbmUiOyBmaWxlbmFtZT0iaW1hZ2UucG5nIg0KQ29udGVudC1MZW5ndGg6
+        IDY3DQpDb250ZW50LVR5cGU6IGltYWdlL3BuZw0KQ29udGVudC1UcmFuc2Zl
+        ci1FbmNvZGluZzogYmluYXJ5DQoNColQTkcNChoKAAAADUlIRFIAAAABAAAA
+        AQgGAAAAHxXEiQAAAApJREFUeJxjAAEAAAUAAQ0KLbQAAAAASUVORK5CYIIN
+        Ci0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC0tDQoNCg==
+    headers:
+      User-Agent:
+      - PewPew Ruby Gem 0.0.1
+      Authorization:
+      - Basic <%= Base64.encode64("api:#{api_key}").strip %>
+      Content-Type:
+      - multipart/form-data;boundary=-----------RubyMultipartPost
+      Content-Length:
+      - '802'
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - nginx/1.0.14
+      date:
+      - Tue, 29 May 2012 23:45:26 GMT
+      content-type:
+      - application/json
+      connection:
+      - close
+      content-length:
+      - '97'
+      content-disposition:
+      - inline
+    body:
+      encoding: US-ASCII
+      string: ! "{\n  \"message\": \"Queued. Thank you.\", \n  \"id\": \"<20120529234526.13436.15849@<%= domain %>>\"\n}"
+    http_version: 
+  recorded_at: Tue, 29 May 2012 23:45:26 GMT
+recorded_with: VCR 2.1.1

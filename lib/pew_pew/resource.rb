@@ -15,12 +15,19 @@ module PewPew
     end
     private :get
 
+    def post(*)
+      super.body
+    end
+    private :post
+
     def connection
       super do |builder|
         builder.basic_auth(:api, config.api_key)
         builder.use(ResponseDecorator)
         builder.response(:mashify, mash_class: Response)
         builder.response(:json)
+        builder.request(:multipart)
+        builder.request(:url_encoded)
       end
     end
     private :connection
