@@ -1,4 +1,5 @@
 shared_context 'API request', :resource do
+  let(:cassette_name) { described_class.name.split(/::/).last.downcase }
   let(:client) { PewPew::Client.new }
 
   around do |example|
@@ -7,14 +8,14 @@ shared_context 'API request', :resource do
       config.domain = ENV['MAILGUN_DOMAIN']
     end
 
-    name = described_class.name.split(/::/).last.downcase
+    basic_auth = Base64.encode64("api:#{client.config.api_key}").strip
 
     vcr_options = {
       record: (ENV['VCR_RECORD'] || :none).to_sym,
       match_requests_on: [:method, :uri, :body],
-      erb: { api_key: client.config.api_key, domain: client.config.domain }
+      erb: { basic_auth: basic_auth, domain: client.config.domain }
     }
 
-    VCR.use_cassette(name, vcr_options, &example)
+    VCR.use_cassette(cassette_name, vcr_options, &example)
   end
 end

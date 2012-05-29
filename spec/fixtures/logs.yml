@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - PewPew Ruby Gem 0.0.1
       Authorization:
-      - Basic <%= Base64.encode64("api:#{api_key}").strip %>
+      - Basic <%= basic_auth %>
   response:
     status:
       code: 200
