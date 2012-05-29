@@ -8,7 +8,9 @@ shared_context 'API request', :resource do
       config.domain = ENV['MAILGUN_DOMAIN']
     end
 
-    basic_auth = Base64.encode64("api:#{client.config.api_key}").strip
+    basic_auth = Base64.encode64(
+      "#{PewPew::Config::USERNAME}:#{client.config.api_key}"
+    ).strip
 
     vcr_options = {
       record: (ENV['VCR_RECORD'] || :none).to_sym,

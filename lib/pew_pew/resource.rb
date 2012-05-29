@@ -22,7 +22,7 @@ module PewPew
 
     def connection
       super do |builder|
-        builder.basic_auth(:api, config.api_key)
+        builder.basic_auth(Config::USERNAME, config.api_key)
         builder.use(ResponseDecorator)
         builder.response(:mashify, mash_class: Response)
         builder.response(:json)

@@ -3,7 +3,8 @@ require 'spec_helper'
 describe PewPew::Config do
   {
     BASE_URI: 'https://api.mailgun.net/v2',
-    USER_AGENT: "PewPew Ruby Gem #{PewPew::VERSION}"
+    USER_AGENT: "PewPew Ruby Gem #{PewPew::VERSION}",
+    USERNAME: 'api'
   }.each do |constant, value|
     context constant do
       subject { described_class.const_get(constant) }

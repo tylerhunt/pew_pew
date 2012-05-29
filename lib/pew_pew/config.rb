@@ -2,6 +2,7 @@ module PewPew
   module Config
     BASE_URI = 'https://api.mailgun.net/v2'
     USER_AGENT = "PewPew Ruby Gem #{PewPew::VERSION}"
+    USERNAME = 'api'
 
     # The Mailgun API key used to authenticate requests.
     # @return [String]
