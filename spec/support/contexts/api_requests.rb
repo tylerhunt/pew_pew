@@ -14,7 +14,7 @@ shared_context 'API request', :resource do
 
     vcr_options = {
       record: (ENV['VCR_RECORD'] || :none).to_sym,
-      match_requests_on: [:method, :uri, :body],
+      match_requests_on: [:method, :uri, :headers, :body],
       erb: { basic_auth: basic_auth, domain: client.config.domain }
     }
 
