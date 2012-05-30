@@ -9,7 +9,9 @@ A Ruby library for using the [Mailgun] API.
 
 Add this line to your application's `Gemfile`:
 
-    gem 'pew_pew'
+``` ruby
+gem 'pew_pew'
+```
 
 And then execute:
 
@@ -31,8 +33,8 @@ You can use the following method to configure your API key and domain:
 
 ``` ruby
 PewPew.configure do |config|
-  config.api_key = MAILGUN_API_KEY
-  config.domain = MAILGUN_DOMAIN # optional
+  config.api_key = ENV['MAILGUN_API_KEY']
+  config.domain = ENV['MAILGUN_DOMAIN'] # optional
 end
 ```
 
@@ -44,8 +46,8 @@ would the `PewPew` module:
 pew_pew = PewPew::Client.new
 
 pew_pew.configure do |config|
-  config.api_key = MAILGUN_API_KEY
-  config.domain = MAILGUN_DOMAIN # optional
+  config.api_key = ENV['MAILGUN_API_KEY']
+  config.domain = ENV['MAILGUN_DOMAIN'] # optional
 end
 ```
 
@@ -57,7 +59,7 @@ module directly or off your client instances:
 
 ``` ruby
 PewPew.stats.all # uses the configured domain
-PewPew.stats(domain: domain).all
+PewPew.stats(domain: 'example.com').all
 ```
 
 
