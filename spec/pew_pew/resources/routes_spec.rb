@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe PewPew::Resources::Routes, :resource do
-  let(:options) { {} }
-  let(:resource) { described_class.new(client, options) }
+  let(:resource) { described_class.new(client) }
 
   context '#all' do
     let(:response) { resource.all }
