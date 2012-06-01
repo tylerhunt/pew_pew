@@ -25,7 +25,8 @@ module PewPew
       #
       # @option params [String, Array<String>] :to recipient or list of
       #   recipient email addresses
-      # @option params [File] :message full MIME content of the message
+      # @option params [File] :message file containing the full MIME content
+      #   of the message
       # @return [Mash] the response body
       def send_mime(params)
         headers = { content_type: 'multipart/form-data' }
