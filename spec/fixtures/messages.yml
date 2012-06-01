@@ -32,7 +32,7 @@ http_interactions:
       - inline
     body:
       encoding: US-ASCII
-      string: ! "{\n  \"message\": \"Queued. Thank you.\",\n  \"id\": \"<20120524080044.27067.73085@<%= domain %>>\"\n}"
+      string: ! "{\n  \"message\": \"Queued. Thank you.\",\n  \"id\": \"<20120524080044.27067.73085@pewpew.mailgun.org>\"\n}"
     http_version: 
   recorded_at: Thu, 24 May 2012 08:00:44 GMT
 - request:
@@ -85,7 +85,7 @@ http_interactions:
       - inline
     body:
       encoding: US-ASCII
-      string: ! "{\n  \"message\": \"Queued. Thank you.\",\n  \"id\": \"<20120529232222.4550.70051@<%= domain %>>\"\n}"
+      string: ! "{\n  \"message\": \"Queued. Thank you.\",\n  \"id\": \"<20120529232222.4550.70051@pewpew.mailgun.org>\"\n}"
     http_version: 
   recorded_at: Tue, 29 May 2012 23:22:22 GMT
 - request:
@@ -140,7 +140,57 @@ http_interactions:
       - inline
     body:
       encoding: US-ASCII
-      string: ! "{\n  \"message\": \"Queued. Thank you.\", \n  \"id\": \"<20120529234526.13436.15849@<%= domain %>>\"\n}"
+      string: ! "{\n  \"message\": \"Queued. Thank you.\", \n  \"id\": \"<20120529234526.13436.15849@pewpew.mailgun.org>\"\n}"
     http_version: 
   recorded_at: Tue, 29 May 2012 23:45:26 GMT
-recorded_with: VCR 2.1.1
+- request:
+    method: post
+    uri: https://api.mailgun.net/v2/<%= domain %>/messages.mime
+    body:
+      encoding: US-ASCII
+      string: ! "-------------RubyMultipartPost\r\nContent-Disposition: form-data;
+        name=\"to\"\r\n\r\npewpew@devoh.com\r\n-------------RubyMultipartPost\r\nContent-Disposition:
+        form-data; name=\"message\"; filename=\"mime.eml\"\r\nContent-Length: 931\r\nContent-Type:
+        message/rfc822\r\nContent-Transfer-Encoding: binary\r\n\r\nDate: Thu, 31 May
+        2012 21:17:55 -0700\nFrom: pewpew@devoh.com\nTo: pewpew@devoh.com\nMessage-ID:
+        <4fc84273c474_48dd3fe70cc34cd05949d@rouge.local.mail>\nSubject: Test\nMime-Version:
+        1.0\nContent-Type: multipart/alternative;\n boundary=\"--==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187\";\n
+        charset=UTF-8\nContent-Transfer-Encoding: 7bit\n\n\n\n----==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187\nDate:
+        Thu, 31 May 2012 21:17:55 -0700\nMime-Version: 1.0\nContent-Type: text/plain;\n
+        charset=UTF-8\nContent-Transfer-Encoding: 7bit\nContent-ID: <4fc842739823_48dd3fe70cc34cd0592d9@rouge.local.mail>\n\nThis
+        is a test message.\n\n----==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187\nDate:
+        Thu, 31 May 2012 21:17:55 -0700\nMime-Version: 1.0\nContent-Type: text/html;\n
+        charset=UTF-8\nContent-Transfer-Encoding: 7bit\nContent-ID: <4fc84273b619_48dd3fe70cc34cd05937b@rouge.local.mail>\n\n<p>This
+        is a test message.<p>\n\n----==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187--\n\r\n-------------RubyMultipartPost--\r\n\r\n"
+    headers:
+      User-Agent:
+      - PewPew Ruby Gem 0.0.1
+      Authorization:
+      - Basic <%= basic_auth %>
+      Content-Type:
+      - multipart/form-data;boundary=-----------RubyMultipartPost
+      Content-Length:
+      - '1253'
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - nginx/1.0.14
+      date:
+      - Fri, 01 Jun 2012 04:19:03 GMT
+      content-type:
+      - application/json
+      connection:
+      - close
+      content-length:
+      - '102'
+      content-disposition:
+      - inline
+    body:
+      encoding: US-ASCII
+      string: ! "{\n  \"message\": \"Queued. Thank you.\",\n  \"id\": \"<4fc84273c474_48dd3fe70cc34cd05949d@rouge.local.mail>\"\n}"
+    http_version: 
+  recorded_at: Fri, 01 Jun 2012 04:19:09 GMT
+recorded_with: VCR 2.2.0

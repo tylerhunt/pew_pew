@@ -1,0 +1,34 @@
+Date: Thu, 31 May 2012 21:17:55 -0700
+From: pewpew@devoh.com
+To: pewpew@devoh.com
+Message-ID: <4fc84273c474_48dd3fe70cc34cd05949d@rouge.local.mail>
+Subject: Test
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187
+Date: Thu, 31 May 2012 21:17:55 -0700
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4fc842739823_48dd3fe70cc34cd0592d9@rouge.local.mail>
+
+This is a test message.
+
+----==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187
+Date: Thu, 31 May 2012 21:17:55 -0700
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4fc84273b619_48dd3fe70cc34cd05937b@rouge.local.mail>
+
+<p>This is a test message.<p>
+
+----==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187--

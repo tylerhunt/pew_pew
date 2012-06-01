@@ -20,6 +20,17 @@ module PewPew
       def send_email(params)
         post("#{domain}/messages", params)
       end
+
+      # Sends a MIME email.
+      #
+      # @option params [String, Array<String>] :to recipient or list of
+      #   recipient email addresses
+      # @option params [File] :message full MIME content of the message
+      # @return [Mash] the response body
+      def send_mime(params)
+        headers = { content_type: 'multipart/form-data' }
+        post("#{domain}/messages.mime", params, headers)
+      end
     end
   end
 end

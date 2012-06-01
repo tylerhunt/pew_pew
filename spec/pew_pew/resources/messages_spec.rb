@@ -29,15 +29,12 @@ describe PewPew::Resources::Messages, :resource do
     }
 
     let(:file) { Faraday::UploadIO.new('spec/fixtures/image.png', 'image/png') }
-    let(:response) { resource.send_email(params) }
 
-    subject { response }
+    subject { resource.send_email(params) }
 
-    context 'minimal case' do
-      specify { should be_success }
-    end
+    specify { should be_success }
 
-    context 'with attachments' do
+    context 'with an attachment' do
       before do
         params.merge!(attachment: file)
       end
@@ -45,7 +42,7 @@ describe PewPew::Resources::Messages, :resource do
       specify { should be_success }
     end
 
-    context 'with inline attachments' do
+    context 'with an inline attachment' do
       before do
         params.merge!(
           html: "#{params[:text]} <img src=\"cid:image.png\">",
@@ -55,5 +52,17 @@ describe PewPew::Resources::Messages, :resource do
 
       specify { should be_success }
     end
+  end
+
+  context '#send_mime' do
+    let(:message) do
+      Faraday::UploadIO.new('spec/fixtures/mime.eml', 'message/rfc822')
+    end
+
+    let(:params) { { to: 'pewpew@devoh.com', message: message } }
+
+    subject { resource.send_mime(params) }
+
+    specify { should be_success }
   end
 end
