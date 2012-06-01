@@ -12,8 +12,18 @@ describe PewPew::Resources::Routes, :resource do
     specify { should be_success }
 
     its(:status) { should == 200 }
-    its(:total_count) { should == 0 }
-    its(:items) { should == [] }
+    its(:total_count) { should == 1 }
+
+    context 'item' do
+      subject { response.items.first }
+
+      its(:id) { should == '4fc850083533542f7704bc05' }
+      its(:priority) { should == 1 }
+      its(:description) { should == 'Forward Gmail' }
+      its(:expression) { should == "match_recipient('.*@gmail.com')" }
+      its(:actions) { should == ["forward('gmail@example.com')"] }
+      its(:created_at) { should == 'Fri, 01 Jun 2012 05:15:52 GMT' }
+    end
   end
 
   context '#find' do

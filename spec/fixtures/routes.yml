@@ -19,20 +19,24 @@ http_interactions:
       server:
       - nginx/1.0.14
       date:
-      - Fri, 01 Jun 2012 05:02:31 GMT
+      - Fri, 01 Jun 2012 19:54:49 GMT
       content-type:
       - application/json
       connection:
       - close
       content-length:
-      - '37'
+      - '325'
       content-disposition:
       - inline
     body:
       encoding: US-ASCII
-      string: ! "{\n  \"total_count\": 0,\n  \"items\": []\n}"
+      string: ! "{\n  \"total_count\": 1,\n  \"items\": [\n    {\n      \"description\":
+        \"Forward Gmail\",\n      \"created_at\": \"Fri, 01 Jun 2012 05:15:52 GMT\",\n
+        \     \"actions\": [\n        \"forward('gmail@example.com')\"\n      ],\n
+        \     \"priority\": 1,\n      \"expression\": \"match_recipient('.*@gmail.com')\",\n
+        \     \"id\": \"4fc850083533542f7704bc05\"\n    }\n  ]\n}"
     http_version: 
-  recorded_at: Fri, 01 Jun 2012 05:02:37 GMT
+  recorded_at: Fri, 01 Jun 2012 19:54:49 GMT
 - request:
     method: post
     uri: https://api.mailgun.net/v2/routes
