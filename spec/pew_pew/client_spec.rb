@@ -34,7 +34,8 @@ describe PewPew::Client do
 
   {
     logs: PewPew::Resources::Logs,
-    stats: PewPew::Resources::Stats
+    messages: PewPew::Resources::Messages,
+    stats: PewPew::Resources::Stats,
   }.each do |method, resource_class|
     context "##{method}" do
       specify { subject.send(method).should be_a(resource_class) }

@@ -17,6 +17,14 @@ module PewPew
       Resources::Logs.new(self, options)
     end
 
+    # Builds a new instance of the messages resource for the given domain.
+    #
+    # @option options [String] :domain the domain name
+    # @return <Resources::Messages> an instance of the messages resource
+    def messages(options={})
+      Resources::Messages.new(self, options)
+    end
+
     # Builds a new instance of the stats resource for the given domain.
     #
     # @option options [String] :domain the domain name
