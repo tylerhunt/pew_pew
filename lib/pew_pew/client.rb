@@ -25,6 +25,13 @@ module PewPew
       Resources::Messages.new(self, options)
     end
 
+    # Builds a new instance of the routes resource for the given domain.
+    #
+    # @return <Resources::Logs> an instance of the routes resource
+    def routes
+      Resources::Routes.new(self)
+    end
+
     # Builds a new instance of the stats resource for the given domain.
     #
     # @option options [String] :domain the domain name
