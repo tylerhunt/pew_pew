@@ -20,6 +20,16 @@ module PewPew
     end
     private :post
 
+    def put(*)
+      super.body
+    end
+    private :put
+
+    def delete(*)
+      super.body
+    end
+    private :delete
+
     def connection
       super do |builder|
         builder.basic_auth(Config::USERNAME, config.api_key)
