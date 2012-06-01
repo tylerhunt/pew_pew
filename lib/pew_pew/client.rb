@@ -17,6 +17,14 @@ module PewPew
       Resources::Logs.new(self, options)
     end
 
+    # Builds a new instance of the mailboxes resource for the given domain.
+    #
+    # @option options [String] :domain the domain name
+    # @return <Resources::Logs> an instance of the mailboxes resource
+    def mailboxes(options={})
+      Resources::Mailboxes.new(self, options)
+    end
+
     # Builds a new instance of the messages resource for the given domain.
     #
     # @option options [String] :domain the domain name

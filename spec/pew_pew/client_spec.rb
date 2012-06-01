@@ -34,6 +34,7 @@ describe PewPew::Client do
 
   {
     logs: PewPew::Resources::Logs,
+    mailboxes: PewPew::Resources::Mailboxes,
     messages: PewPew::Resources::Messages,
     routes: PewPew::Resources::Routes,
     stats: PewPew::Resources::Stats,
