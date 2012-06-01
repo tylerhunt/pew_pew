@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - PewPew Ruby Gem 0.0.1
       Authorization:
-      - Basic YXBpOmtleS0wMm45ZjNpamw5c205dTk3LThwN3ItZDctMTVxLXVpMQ==
+      - Basic <%= basic_auth %>
   response:
     status:
       code: 200
@@ -43,7 +43,7 @@ http_interactions:
       User-Agent:
       - PewPew Ruby Gem 0.0.1
       Authorization:
-      - Basic YXBpOmtleS0wMm45ZjNpamw5c205dTk3LThwN3ItZDctMTVxLXVpMQ==
+      - Basic <%= basic_auth %>
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -82,7 +82,7 @@ http_interactions:
       User-Agent:
       - PewPew Ruby Gem 0.0.1
       Authorization:
-      - Basic YXBpOmtleS0wMm45ZjNpamw5c205dTk3LThwN3ItZDctMTVxLXVpMQ==
+      - Basic <%= basic_auth %>
   response:
     status:
       code: 200
@@ -118,7 +118,7 @@ http_interactions:
       User-Agent:
       - PewPew Ruby Gem 0.0.1
       Authorization:
-      - Basic YXBpOmtleS0wMm45ZjNpamw5c205dTk3LThwN3ItZDctMTVxLXVpMQ==
+      - Basic <%= basic_auth %>
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -156,7 +156,7 @@ http_interactions:
       User-Agent:
       - PewPew Ruby Gem 0.0.1
       Authorization:
-      - Basic YXBpOmtleS0wMm45ZjNpamw5c205dTk3LThwN3ItZDctMTVxLXVpMQ==
+      - Basic <%= basic_auth %>
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -195,7 +195,7 @@ http_interactions:
       User-Agent:
       - PewPew Ruby Gem 0.0.1
       Authorization:
-      - Basic YXBpOmtleS0wMm45ZjNpamw5c205dTk3LThwN3ItZDctMTVxLXVpMQ==
+      - Basic <%= basic_auth %>
   response:
     status:
       code: 200
