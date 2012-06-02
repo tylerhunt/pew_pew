@@ -9,6 +9,14 @@ module PewPew
       config.extend(Config)
     end
 
+    # Builds a new instance of the complaints resource for the given domain.
+    #
+    # @option options [String] :domain the domain name
+    # @return <Resources::Stats> an instance of the complaints resource
+    def complaints(options={})
+      Resources::Complaints.new(self, options)
+    end
+
     # Builds a new instance of the logs resource for the given domain.
     #
     # @option options [String] :domain the domain name

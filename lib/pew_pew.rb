@@ -11,6 +11,7 @@ module PewPew
   autoload :Response, 'pew_pew/response'
 
   module Resources
+    autoload :Complaints, 'pew_pew/resources/complaints'
     autoload :Logs, 'pew_pew/resources/logs'
     autoload :Mailboxes, 'pew_pew/resources/mailboxes'
     autoload :Messages, 'pew_pew/resources/messages'

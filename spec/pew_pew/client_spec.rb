@@ -33,6 +33,7 @@ describe PewPew::Client do
   end
 
   {
+    complaints: PewPew::Resources::Complaints,
     logs: PewPew::Resources::Logs,
     mailboxes: PewPew::Resources::Mailboxes,
     messages: PewPew::Resources::Messages,
