@@ -47,5 +47,13 @@ module PewPew
     def stats(options={})
       Resources::Stats.new(self, options)
     end
+
+    # Builds a new instance of the unsubscribes resource for the given domain.
+    #
+    # @option options [String] :domain the domain name
+    # @return <Resources::Stats> an instance of the unsubscribes resource
+    def unsubscribes(options={})
+      Resources::Unsubscribes.new(self, options)
+    end
   end
 end

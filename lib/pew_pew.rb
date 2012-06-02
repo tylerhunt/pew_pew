@@ -16,6 +16,7 @@ module PewPew
     autoload :Messages, 'pew_pew/resources/messages'
     autoload :Routes, 'pew_pew/resources/routes'
     autoload :Stats, 'pew_pew/resources/stats'
+    autoload :Unsubscribes, 'pew_pew/resources/unsubscribes'
   end
 
   # @return a memoized instance of the client

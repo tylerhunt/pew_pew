@@ -38,6 +38,7 @@ describe PewPew::Client do
     messages: PewPew::Resources::Messages,
     routes: PewPew::Resources::Routes,
     stats: PewPew::Resources::Stats,
+    unsubscribes: PewPew::Resources::Unsubscribes,
   }.each do |method, resource_class|
     context "##{method}" do
       specify { subject.send(method).should be_a(resource_class) }
