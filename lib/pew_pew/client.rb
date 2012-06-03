@@ -12,7 +12,7 @@ module PewPew
     # Builds a new instance of the bounces resource for the given domain.
     #
     # @option options [String] :domain the domain name
-    # @return <Resources::Stats> an instance of the bounces resource
+    # @return <Resources::Bounces> an instance of the bounces resource
     def bounces(options={})
       Resources::Bounces.new(self, options)
     end
@@ -20,7 +20,7 @@ module PewPew
     # Builds a new instance of the complaints resource for the given domain.
     #
     # @option options [String] :domain the domain name
-    # @return <Resources::Stats> an instance of the complaints resource
+    # @return <Resources::Complaints> an instance of the complaints resource
     def complaints(options={})
       Resources::Complaints.new(self, options)
     end
@@ -36,7 +36,7 @@ module PewPew
     # Builds a new instance of the mailboxes resource for the given domain.
     #
     # @option options [String] :domain the domain name
-    # @return <Resources::Logs> an instance of the mailboxes resource
+    # @return <Resources::Mailboxes> an instance of the mailboxes resource
     def mailboxes(options={})
       Resources::Mailboxes.new(self, options)
     end
@@ -51,7 +51,7 @@ module PewPew
 
     # Builds a new instance of the routes resource for the given domain.
     #
-    # @return <Resources::Logs> an instance of the routes resource
+    # @return <Resources::Routes> an instance of the routes resource
     def routes
       Resources::Routes.new(self)
     end
@@ -67,7 +67,7 @@ module PewPew
     # Builds a new instance of the unsubscribes resource for the given domain.
     #
     # @option options [String] :domain the domain name
-    # @return <Resources::Stats> an instance of the unsubscribes resource
+    # @return <Resources::Unsubscribes> an instance of the unsubscribes resource
     def unsubscribes(options={})
       Resources::Unsubscribes.new(self, options)
     end
