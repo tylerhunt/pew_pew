@@ -34,6 +34,7 @@ describe PewPew::Client do
 
   {
     bounces: PewPew::Resources::Bounces,
+    campaigns: PewPew::Resources::Campaigns,
     complaints: PewPew::Resources::Complaints,
     logs: PewPew::Resources::Logs,
     mailboxes: PewPew::Resources::Mailboxes,

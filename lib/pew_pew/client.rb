@@ -17,6 +17,14 @@ module PewPew
       Resources::Bounces.new(self, options)
     end
 
+    # Builds a new instance of the campaigns resource for the given domain.
+    #
+    # @option options [String] :domain the domain name
+    # @return <Resources::Campaigns> an instance of the complaints resource
+    def campaigns(options={})
+      Resources::Campaigns.new(self, options)
+    end
+
     # Builds a new instance of the complaints resource for the given domain.
     #
     # @option options [String] :domain the domain name
