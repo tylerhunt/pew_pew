@@ -29,6 +29,13 @@ end
 describe PewPew::Resource::ResponseDecorator do
   it { should be_a(Faraday::Response::Middleware) }
 
+  it 'converts an array response into a mash' do
+    env = { body: [:response] }
+    subject.on_complete(env)
+    env[:body].total_count.should == 1
+    env[:body].items.should == [:response]
+  end
+
   it 'stores the request status on the response body' do
     env = { body: PewPew::Response.new, status: 200 }
 
