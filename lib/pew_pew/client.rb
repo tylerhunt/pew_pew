@@ -33,6 +33,13 @@ module PewPew
       Resources::Complaints.new(self, options)
     end
 
+    # Builds a new instance of the lists resource.
+    #
+    # @return <Resources::Lists> an instance of the lists resource
+    def lists
+      Resources::Lists.new(self)
+    end
+
     # Builds a new instance of the logs resource for the given domain.
     #
     # @option options [String] :domain the domain name
@@ -57,7 +64,7 @@ module PewPew
       Resources::Messages.new(self, options)
     end
 
-    # Builds a new instance of the routes resource for the given domain.
+    # Builds a new instance of the routes resource.
     #
     # @return <Resources::Routes> an instance of the routes resource
     def routes

@@ -14,6 +14,7 @@ module PewPew
     autoload :Bounces, 'pew_pew/resources/bounces'
     autoload :Campaigns, 'pew_pew/resources/campaigns'
     autoload :Complaints, 'pew_pew/resources/complaints'
+    autoload :Lists, 'pew_pew/resources/lists'
     autoload :Logs, 'pew_pew/resources/logs'
     autoload :Mailboxes, 'pew_pew/resources/mailboxes'
     autoload :Messages, 'pew_pew/resources/messages'
