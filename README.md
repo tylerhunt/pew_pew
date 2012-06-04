@@ -1,6 +1,6 @@
-# PewPew
+# Pew Pew
 
-A Ruby library for using the [Mailgun] API.
+A Ruby client library for using the [Mailgun] web service.
 
 [mailgun]: https://mailgun.net/
 

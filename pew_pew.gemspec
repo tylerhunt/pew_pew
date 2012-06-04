@@ -3,7 +3,7 @@ require './lib/pew_pew/version'
 Gem::Specification.new do |gem|
   gem.name = 'pew_pew'
   gem.version = PewPew::VERSION
-  gem.summary = 'A Ruby library for using the Mailgun API.'
+  gem.summary = 'A Ruby client library for using the Mailgun web service.'
   gem.homepage = 'http://github.com/tylerhunt/pew_pew'
   gem.author = 'Tyler Hunt'
 
