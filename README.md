@@ -72,7 +72,8 @@ PewPew.messages.send_email(
 ```
 
 For resources that require a domain, you may pass it as an option when calling
-the resource. If a domain has been configured, it will be used as the default.
+the resource. If a domain has been configured, it will be used as the default
+for all methods called on the resource.
 
 ``` ruby
 PewPew.stats.all # uses the configured domain
