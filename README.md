@@ -4,6 +4,11 @@ A Ruby client library for using the [Mailgun] web service.
 
 [mailgun]: https://mailgun.net/
 
+[![Build Status][travis-image]][travis]
+
+[travis]: http://travis-ci.org/tylerhunt/pew_pew
+[travis-image]: https://secure.travis-ci.org/tylerhunt/pew_pew.png
+
 
 ## Installation
 
