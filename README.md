@@ -74,6 +74,11 @@ PewPew.stats.all # uses the configured domain
 PewPew.stats(domain: 'example.com').all # uses example.com
 ```
 
+See the [documentation][] for the complete [list of resources][resources].
+
+[documentation]: http://rubydoc.info/gems/pew_pew/frames
+[resources]: http://rubydoc.info/gems/pew_pew/frames/PewPew/Resources
+
 
 ## Contributing
 
