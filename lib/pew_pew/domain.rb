@@ -5,5 +5,5 @@ module PewPew
     end
     private :domain
   end
-  private_constant :Domain
+  private_constant :Domain if respond_to?(:private_constant) # >= 1.9.3
 end
