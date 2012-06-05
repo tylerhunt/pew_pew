@@ -7,6 +7,8 @@ Gem::Specification.new do |gem|
   gem.homepage = 'http://github.com/tylerhunt/pew_pew'
   gem.author = 'Tyler Hunt'
 
+  gem.required_ruby_version = '>= 1.9'
+
   gem.add_dependency 'faraday_middleware', '~> 0.8.0'
   gem.add_dependency 'hashie', '~> 1.1'
   gem.add_dependency 'relax', '~> 0.2.0'
