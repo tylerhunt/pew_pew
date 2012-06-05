@@ -8,7 +8,7 @@ http_interactions:
       string: address=newsletter%40pewpew.mailgun.org&description=Weekly+News+and+Updates&name=Newsletter
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -46,7 +46,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -82,7 +82,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -118,7 +118,7 @@ http_interactions:
       string: description=Monthly+News+and+Updates
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -156,7 +156,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -190,7 +190,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -227,7 +227,7 @@ http_interactions:
       string: address=member%40example.com&name=Member+Name&vars=%7B%22awesome%22%3Atrue%7D
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -265,7 +265,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -300,7 +300,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -336,7 +336,7 @@ http_interactions:
       string: subscribed=false
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -374,7 +374,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:

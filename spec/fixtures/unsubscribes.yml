@@ -8,7 +8,7 @@ http_interactions:
       string: address=test%40example.com&tag=newsletter
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -44,7 +44,7 @@ http_interactions:
       string: address=test%40example.com&tag=%2A
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -80,7 +80,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -118,7 +118,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -156,7 +156,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -190,7 +190,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:

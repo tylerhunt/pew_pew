@@ -8,7 +8,7 @@ http_interactions:
       string: to=pewpew%40devoh.com&from=pewpew%40devoh.com&subject=Test&text=This+is+a+test+message.
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -59,7 +59,7 @@ http_interactions:
         Cg==
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -114,7 +114,7 @@ http_interactions:
         Ci0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC0tDQoNCg==
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -164,7 +164,7 @@ http_interactions:
         is a test message.<p>\n\n----==_mimepart_4fc8427374a4_48dd3fe70cc34cd059187--\n\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:

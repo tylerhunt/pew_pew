@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -45,7 +45,7 @@ http_interactions:
       string: priority=1&description=Forward+Gmail&expression=match_recipient%28%27.%2A%40gmail.com%27%29&action=forward%28%27gmail%40example.com%27%29
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -84,7 +84,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -120,7 +120,7 @@ http_interactions:
       string: priority=2
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -158,7 +158,7 @@ http_interactions:
       string: priority=1&description=Forward+Gmail&expression=match_recipient%28%27.%2A%40gmail.com%27%29&action%5B%5D=forward%28%27gmail%40example.com%27%29&action%5B%5D=stop%28%29
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -197,7 +197,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:

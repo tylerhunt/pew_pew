@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:

@@ -8,7 +8,7 @@ http_interactions:
       string: name=Test&id=test
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -44,7 +44,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -77,7 +77,7 @@ http_interactions:
       string: name=Test
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
       Content-Type:
@@ -113,7 +113,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -151,7 +151,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -185,7 +185,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -216,7 +216,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -249,7 +249,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -280,7 +280,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -311,7 +311,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
@@ -342,7 +342,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - PewPew Ruby Gem 0.0.1
+      - <%= user_agent %>
       Authorization:
       - Basic <%= basic_auth %>
   response:
