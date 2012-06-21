@@ -93,3 +93,9 @@ See the [documentation][] for the complete [list of resources][resources].
 3. Commit your changes (`git commit -am 'Add some feature.'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+
+## Copyright
+
+Copyright © 2012 Tyler Hunt.
+Released under the terms of the MIT license. See LICENSE for details.
