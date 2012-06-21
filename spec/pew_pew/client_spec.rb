@@ -13,8 +13,10 @@ describe PewPew::Client do
   end
 
   context '#configure' do
-    subject do
-      described_class.new.configure do |config|
+    let(:client) { described_class.new }
+
+    before do
+      client.configure do |config|
         config.adapter = :typhoeus
         config.base_uri = 'https://api.mailgun.com/v2'
         config.user_agent = 'A PewPew Application'
@@ -23,6 +25,8 @@ describe PewPew::Client do
         config.domain = 'pewpew.mailgun.org'
       end
     end
+
+    subject { client.config }
 
     its(:adapter) { should == :typhoeus }
     its(:base_uri) { should == 'https://api.mailgun.com/v2' }
