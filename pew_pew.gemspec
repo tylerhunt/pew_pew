@@ -1,24 +1,25 @@
 require './lib/pew_pew/version'
 
-Gem::Specification.new do |gem|
-  gem.name = 'pew_pew'
-  gem.version = PewPew::VERSION
-  gem.summary = 'A Ruby client library for using the Mailgun web service.'
-  gem.homepage = 'http://github.com/tylerhunt/pew_pew'
-  gem.author = 'Tyler Hunt'
+Gem::Specification.new do |spec|
+  spec.name = 'pew_pew'
+  spec.version = PewPew::VERSION
+  spec.authors = ['Tyler Hunt']
+  spec.summary = 'A Ruby client library for using the Mailgun web service.'
+  spec.homepage = 'http://github.com/tylerhunt/pew_pew'
+  spec.license = 'MIT'
 
-  gem.required_ruby_version = '>= 2.6'
+  spec.required_ruby_version = '>= 2.6'
 
-  gem.add_dependency 'faraday-mashify'
-  gem.add_dependency 'faraday-multipart'
-  gem.add_dependency 'hashie', '~> 1.1'
-  gem.add_dependency 'relax', '~> 0.3.0'
-  gem.add_development_dependency 'rspec', '~> 3.12'
-  gem.add_development_dependency 'rspec-its', '~> 1.3'
-  gem.add_development_dependency 'vcr', '~> 6.1'
+  spec.add_dependency 'faraday-mashify'
+  spec.add_dependency 'faraday-multipart'
+  spec.add_dependency 'hashie', '~> 1.1'
+  spec.add_dependency 'relax', '~> 0.3.0'
+  spec.add_development_dependency 'rspec', '~> 3.12'
+  spec.add_development_dependency 'rspec-its', '~> 1.3'
+  spec.add_development_dependency 'vcr', '~> 6.1'
 
-  gem.files = `git ls-files`.split($\)
-  gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
-  gem.test_files = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ['lib']
+  spec.files = `git ls-files`.split($\)
+  spec.executables = spec.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+  spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ['lib']
 end
