@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Pew Pew 0.1.0 - November 18, 2022
 
 * Support Faraday ~> 2.0
 * Require Ruby >= 2.6
