@@ -1,21 +1,33 @@
-require 'spec_helper'
+module PewPew
+  RSpec.describe Response do
+    it { should be_a Hashie::Mash }
 
-describe PewPew::Response do
-  it { should be_a(Hashie::Mash) }
+    context '#count' do
+      subject(:response) { described_class.new(count: 2) }
 
-  context '#count' do
-    it 'returns the value of the count attribute' do
-      described_class.new(count: 2).count.should == 2
-    end
-  end
-
-  context '#success?' do
-    it 'returns true if the status is 200' do
-      described_class.new(status: 200).should be_success
+      it 'returns the value of the count attribute' do
+        expect(response.count).to eq 2
+      end
     end
 
-    it 'returns false if the status is 400' do
-      described_class.new(status: 400).should_not be_success
+    context '#success?' do
+      subject(:response) { described_class.new(status: status) }
+
+      context 'when the status is 200' do
+        let(:status) { 200 }
+
+        it 'returns true' do
+          expect(response).to be_success
+        end
+      end
+
+      context 'when the status is 400' do
+        let(:status) { 400 }
+
+        it 'returns false' do
+          expect(response).to_not be_success
+        end
+      end
     end
   end
 end

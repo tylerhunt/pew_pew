@@ -1,4 +1,6 @@
-shared_context 'API request', :resource do
+require 'cgi'
+
+RSpec.shared_context 'API request', :resource do
   let(:cassette_name) { described_class.name.split(/::/).last.downcase }
   let(:client) { PewPew::Client.new }
 
@@ -14,7 +16,7 @@ shared_context 'API request', :resource do
 
     vcr_options = {
       record: (ENV['VCR_RECORD'] || :none).to_sym,
-      match_requests_on: [:method, :uri, :headers, :body],
+      match_requests_on: [:method, :uri, :multipart_headers, :multipart_body],
       erb: {
         basic_auth: basic_auth,
         domain: client.config.domain,
@@ -22,6 +24,6 @@ shared_context 'API request', :resource do
       }
     }
 
-    VCR.use_cassette(cassette_name, vcr_options, &example)
+    VCR.use_cassette cassette_name, vcr_options, &example
   end
 end

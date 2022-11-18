@@ -1,4 +1,4 @@
-shared_context 'domain resource', :domain do
+RSpec.shared_context 'domain resource', :domain do
   context 'options' do
     subject { described_class.new(client, options) }
 

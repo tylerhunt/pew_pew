@@ -1,13 +1,12 @@
-require 'spec_helper'
-
-describe PewPew do
+RSpec.describe PewPew do
   [
     Relax::Client.instance_methods(false),
     PewPew::Client.instance_methods(false)
   ].flatten.each do |method|
     it "delegates .#{method} to .client" do
-      described_class.send(:client).should_receive(method)
-      described_class.send(method)
+      expect(described_class.send(:client)).to receive(method)
+
+      described_class.send method
     end
   end
 end

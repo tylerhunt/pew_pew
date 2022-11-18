@@ -1,46 +1,52 @@
-require 'spec_helper'
+module PewPew
+  RSpec.describe Resource do
+    let(:client) { Client.new }
 
-describe PewPew::Resource do
-  let(:client) { PewPew::Client.new }
-  let(:resource) { Class.new { include PewPew::Resource }.new(client) }
+    subject(:resource) { Class.new { include Resource }.new(client) }
 
-  context '#connection' do
-    subject { resource.send(:connection) }
+    context '#connection' do
+      let(:connection) { resource.send(:connection) }
 
-    context 'middleware' do
-      let(:handlers) { subject.builder.handlers }
+      context 'middleware' do
+        let(:handlers) { connection.builder.handlers }
 
-      [
-        PewPew::Resource::ResponseDecorator,
-        FaradayMiddleware::Mashify,
-        FaradayMiddleware::ParseJson,
-        Faraday::Request::Multipart,
-        Faraday::Request::UrlEncoded,
-        Faraday::Adapter::NetHttp
-      ].each.with_index do |middleware, index|
-        it "uses #{middleware}" do
-          handlers.index(middleware).should == index
+        [
+          Resource::ResponseDecorator,
+          Faraday::Mashify::Middleware,
+          Faraday::Response::Json,
+          Faraday::Multipart::Middleware,
+          Faraday::Request::UrlEncoded
+        ].each.with_index do |middleware, index|
+          it "uses #{middleware}" do
+            expect(handlers.index(middleware)).to eq index
+          end
         end
       end
     end
   end
-end
 
-describe PewPew::Resource::ResponseDecorator do
-  it { should be_a(Faraday::Response::Middleware) }
+  RSpec.describe Resource::ResponseDecorator do
+    subject(:middleware) { described_class.new }
 
-  it 'converts an array response into a mash' do
-    env = { body: [:response] }
-    subject.on_complete(env)
-    env[:body].total_count.should == 1
-    env[:body].items.should == [:response]
-  end
+    it { is_expected.to be_a Faraday::Middleware }
 
-  it 'stores the request status on the response body' do
-    env = { body: PewPew::Response.new, status: 200 }
+    it 'converts an array response into a mash' do
+      env = { body: [:response] }
 
-    expect {
-      subject.on_complete(env)
-    }.to change(env[:body], :status).from(nil).to(200)
+      middleware.on_complete env
+
+      expect(env).to match a_hash_including(
+        body: an_object_having_attributes(total_count: 1, items: [:response])
+      )
+    end
+
+    it 'stores the request status on the response body' do
+      env = { body: Response.new, status: 200 }
+
+      expect { middleware.on_complete env }
+        .to change(env[:body], :status)
+        .from(nil)
+        .to(200)
+    end
   end
 end

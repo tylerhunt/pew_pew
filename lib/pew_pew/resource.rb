@@ -1,10 +1,12 @@
-require 'faraday_middleware'
+require 'faraday'
+require 'faraday/mashify'
+require 'faraday/multipart'
 
 module PewPew
   module Resource
     include Relax::Resource
 
-    class ResponseDecorator < Faraday::Response::Middleware
+    class ResponseDecorator < Faraday::Middleware
       def on_complete(env)
         if env[:body].is_a?(Array)
           items = env[:body]
@@ -36,16 +38,16 @@ module PewPew
     private :delete
 
     def connection
-      super do |builder|
-        builder.basic_auth(Config::USERNAME, config.api_key)
+      super { |builder|
+        builder.set_basic_auth Config::USERNAME, config.api_key
 
-        builder.use(ResponseDecorator)
-        builder.response(:mashify, mash_class: Response)
-        builder.response(:json)
+        builder.use ResponseDecorator
+        builder.response :mashify, mash_class: Response
+        builder.response :json, content_type: //
 
-        builder.request(:multipart)
-        builder.request(:url_encoded)
-      end
+        builder.request :multipart
+        builder.request :url_encoded
+      }
     end
     private :connection
   end
