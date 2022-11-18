@@ -23,16 +23,19 @@ VCR.configure do |config|
   end
 
   config.register_request_matcher :multipart_headers do |request_1, request_2|
-    except = []
-
     content_type_1 = request_1.headers['Content-Type']
     content_type_2 = request_2.headers['Content-Type']
 
     if content_type_1 && content_type_1[0] =~ /RubyMultipartPost/ &&
       content_type_2 && content_type_2[0] =~ /RubyMultipartPost/ &&
-      except << 'Content-Type'
-    end
+      headers_1 =
+        request_1.headers.dup.delete_if { |key| key == 'Content-Type' }
+      headers_2 =
+        request_2.headers.dup.delete_if { |key| key == 'Content-Type' }
 
-    request_1.headers.except(*except) == request_2.headers.except(*except)
+      headers_1 == headers_2
+    else
+      request_1.headers == request_2.headers
+    end
   end
 end
