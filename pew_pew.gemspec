@@ -14,6 +14,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday-multipart'
   spec.add_dependency 'hashie', '~> 1.1'
   spec.add_dependency 'relax', '~> 0.3.0'
+  spec.add_development_dependency 'appraisal', '~> 2.4'
   spec.add_development_dependency 'rspec', '~> 3.12'
   spec.add_development_dependency 'rspec-its', '~> 1.3'
   spec.add_development_dependency 'vcr', '~> 6.1'
