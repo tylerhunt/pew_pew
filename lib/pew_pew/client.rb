@@ -8,10 +8,11 @@ module PewPew
   # The client object for accessing the Mailgun API.
   class Client
     # @example
-    #   client = PewPew::Client.new(api_key: ENV.fetch('MAILGUN_API_KEY'))
+    #   # assuming ENV['MAILGUN_API_KEY'] is present:
+    #   client = PewPew::Client.new
     #
     # @param api_key [String] Mailgun API key
-    def initialize(api_key:)
+    def initialize(api_key: ENV.fetch('MAILGUN_API_KEY'))
       self.api = API.new(api_key: api_key)
     end
 

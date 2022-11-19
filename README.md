@@ -38,10 +38,10 @@ one, you can [sign up here][api-key].
 
 [api-key]: https://signup.mailgun.com/new/signup
 
-You can use the following method to configure your API key:
+Assuming the `MAILGUN_API_KEY` environment variable is present:
 
 ```ruby
-client = PewPew::Client.new(api_key: ENV.fetch('MAILGUN_API_KEY'))
+client = PewPew::Client.new
 ```
 
 ## Usage
