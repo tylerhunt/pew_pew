@@ -1,17 +1,15 @@
-require 'pew_pew'
-require 'rspec/its'
+# frozen_string_literal: true
 
-# These defaults are only for use when developing this client library. Please
-# do not use them in your own applications. Sign up for your own account here:
-# https://mailgun.net/signup
-ENV['MAILGUN_API_KEY'] ||= 'key-02n9f3ijl9sm9u97-8p7r-d7-15q-ui1'
-ENV['MAILGUN_DOMAIN'] ||= 'pewpew.mailgun.org'
+require 'pew_pew'
 
 RSpec.configure do |config|
-  config.run_all_when_everything_filtered = true
-  config.filter_run :focus
-end
+  # Enable flags like --only-failures and --next-failure
+  config.example_status_persistence_file_path = '.rspec_status'
 
-Dir[File.expand_path('../support/**/*.rb', __FILE__)].each do |file|
-  require(file)
+  # Disable RSpec exposing methods globally on `Module` and `main`
+  config.disable_monkey_patching!
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end

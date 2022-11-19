@@ -1,14 +1,14 @@
-# Changelog
+## [Unreleased]
 
-## Pew Pew 0.1.0 - November 18, 2022
+## [0.1.0] - 2022-11-18
 
-* Support Faraday ~> 2.0
-* Require Ruby >= 2.6
+- Support Faraday ~> 2.0
+- Require Ruby >= 2.6
 
-## Pew Pew 0.0.2 - June 5, 2012
+## [0.0.2] - 2012-06-05
 
-* Add support for Ruby < 1.9.3.
+- Add support for Ruby < 1.9.3
 
-## Pew Pew 0.0.1 - June 4, 2012
+## [0.1.0] - 2012-06-04
 
-* Initial release.
+- Initial release

@@ -1,0 +1,39 @@
+require:
+  - rubocop-rake
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.6
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Layout/LineLength:
+  Max: 80
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/AccessorGrouping:
+  EnforcedStyle: separated
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+RSpec/NotToNot:
+  EnforcedStyle: to_not

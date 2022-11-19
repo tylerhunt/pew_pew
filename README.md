@@ -1,101 +1,75 @@
 # Pew Pew
 
-A Ruby client library for using the [Mailgun] web service.
+A Ruby client library for using the [Mailgun][] web service.
 
-[mailgun]: https://mailgun.net/
+[mailgun]: https://www.mailgun.com
 
-[![Build Status][travis-image]][travis]
+[![Build][build-image]][build]
+[![Maintainability][codeclimate-image]][codeclimate]
+[![Gem Version][rubygems-image]][rubygems]
 
-[travis]: http://travis-ci.org/tylerhunt/pew_pew
-[travis-image]: https://secure.travis-ci.org/tylerhunt/pew_pew.png
-
+[build]: https://github.com/tylerhunt/pew_pew/actions/workflows/main.yml?query=branch%3Amaster
+[build-image]: https://github.com/tylerhunt/pew_pew/actions/workflows/main.yml/badge.svg
+[codeclimate]: https://codeclimate.com/github/tylerhunt/pew_pew/maintainability
+[codeclimate-image]: https://api.codeclimate.com/v1/badges/65a20ce39216677c4b8a/maintainability
+[rubygems]: https://badge.fury.io/rb/pew_pew
+[rubygems-image]: https://badge.fury.io/rb/pew_pew.svg
 
 ## Installation
 
 Add this line to your application's `Gemfile`:
 
-``` ruby
+```ruby
 gem 'pew_pew'
 ```
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
     $ gem install pew_pew
-
 
 ## Configuration
 
 You must have a valid API key to use the Mailgun API. If you don't yet have
 one, you can [sign up here][api-key].
 
-[api-key]: http://www.mailgun.net/signup
+[api-key]: https://signup.mailgun.com/new/signup
 
-You can use the following method to configure your API key and domain:
+You can use the following method to configure your API key:
 
-``` ruby
-PewPew.configure do |config|
-  config.api_key = ENV['MAILGUN_API_KEY']
-  config.domain = ENV['MAILGUN_DOMAIN'] # optional
-end
+```ruby
+client = PewPew::Client.new(api_key: ENV.fetch('MAILGUN_API_KEY'))
 ```
-
-If you'd like to use multiple instances of the API with different keys, you can
-instantiate `PewPew::Client` directly and treat those instances the same as you
-would the `PewPew` module:
-
-``` ruby
-pew_pew = PewPew::Client.new
-
-pew_pew.configure do |config|
-  config.api_key = ENV['MAILGUN_API_KEY']
-  config.domain = ENV['MAILGUN_DOMAIN'] # optional
-end
-```
-
 
 ## Usage
 
-Once the API key has been configured, resources can be called on the `PewPew`
-module directly or off your client instances:
+Once the API key has been configured, resources can be called on the client:
 
 ``` ruby
-PewPew.messages.send_email(
-  to: 'to@example.com',
-  from: 'from@example.com',
-  subject: 'Test',
-  text: 'This is a test message.'
-)
-```
-
-For resources that require a domain, you may pass it as an option when calling
-the resource. If a domain has been configured, it will be used as the default
-for all methods called on the resource.
-
-``` ruby
-PewPew.stats.all # uses the configured domain
-PewPew.stats(domain: 'example.com').all # uses example.com
+client.lists.create(address: 'list@example.com')
 ```
 
 See the [documentation][] for the complete [list of resources][resources].
 
-[documentation]: http://rubydoc.info/gems/pew_pew/frames
-[resources]: http://rubydoc.info/gems/pew_pew/frames/PewPew/Resources
-
+[documentation]: https://rubydoc.info/gems/pew_pew
+[resources]: https://rubydoc.info/gems/pew_pew/PewPew/Resources
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature.'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+The following environment variables are required to run the specs:
 
+  - `MAILGUN_API_KEY`
+  - `MAILGUN_DOMAIN`
 
-## Copyright
+Bug reports and pull requests are welcome on [GitHub][].
 
-Copyright © 2012 Tyler Hunt.
-Released under the terms of the MIT license. See LICENSE for details.
+[github]: https://github.com/tylerhunt/pew_pew
+
+## License
+
+The gem is available as open source under the terms of the [MIT License][mit].
+
+[mit]: https://opensource.org/licenses/MIT

@@ -1,12 +1,7 @@
-RSpec.describe PewPew do
-  [
-    Relax::Client.instance_methods(false),
-    PewPew::Client.instance_methods(false)
-  ].flatten.each do |method|
-    it "delegates .#{method} to .client" do
-      expect(described_class.send(:client)).to receive(method)
+# frozen_string_literal: true
 
-      described_class.send method
-    end
+RSpec.describe PewPew do
+  it 'has a version number' do
+    expect(described_class::VERSION).to_not be_nil
   end
 end
