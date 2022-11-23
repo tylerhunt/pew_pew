@@ -2,6 +2,7 @@
 
 require 'dry/monads'
 require 'net/http'
+require 'net/http/post/multipart'
 require 'uri'
 
 require_relative 'contract'
@@ -33,10 +34,17 @@ module PewPew
     #
     # @param path [String] request path relative to endpoint URI
     # @param data [Hash] request data (multipart/form-data)
-    def post(path, data={})
-      request = Net::HTTP::Post.new(URI.join(uri, path))
+    def post(path, data={}, multipart: false)
+      request =
+        unless multipart
+          Net::HTTP::Post.new(URI.join(uri, path)).tap { |request|
+            request.set_form_data data
+          }
+        else
+          Net::HTTP::Post::Multipart.new(URI.join(uri, path), data)
+        end
+
       request.basic_auth USERNAME, api_key
-      request.set_form_data data
 
       perform_request(request)
     end

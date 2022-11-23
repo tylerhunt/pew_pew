@@ -1,6 +1,7 @@
 # action frozen_string_literal: true
 
 require_relative 'messages/send'
+require_relative 'messages/send_mime'
 
 module PewPew
   # Provide access to the mailing lists resource.
@@ -34,6 +35,21 @@ module PewPew
     # @param inline [String] Inline file attachments
     def send(**data)
       Send.new(api: api).call(**data)
+    end
+
+    # Creates and sends a new message in MIME format.
+    #
+    # @example
+    #   client.messages.send(
+    #     to: 'recipient@example.com',
+    #     message: '<MIME content>',
+    #   )
+    #
+    # @param domain [String] The account domain
+    # @param to [String] Recipient address
+    # @param message [String] MIME string of the message
+    def send_mime(**data)
+      SendMIME.new(api: api).call(**data)
     end
 
   protected

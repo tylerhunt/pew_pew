@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailgun.net/v3/<MAILGUN_DOMAIN>/messages.mime
+    body:
+      encoding: ASCII-8BIT
+      string: "----a2b798e4-ae26-4d58-aab2-5901d0befef2\r\nContent-Disposition: form-data;
+        name=\"to\"\r\n\r\ntest@<MAILGUN_DOMAIN>\r\n----a2b798e4-ae26-4d58-aab2-5901d0befef2\r\nContent-Disposition:
+        form-data; name=\"message\"; filename=\"local.path\"\r\nContent-Length: 180\r\nContent-Type:
+        application/octet-stream\r\nContent-Transfer-Encoding: binary\r\n\r\nDate:
+        Wed, 23 Nov 2022 10:34:58 -0500\r\nMessage-ID: <637e3da26eaa6_1489c18d8664f8@rosso.local.mail>\r\nMime-Version:
+        1.0\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: 7bit\r\n\r\n\r\n----a2b798e4-ae26-4d58-aab2-5901d0befef2--\r\n"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Content-Type:
+      - multipart/form-data; boundary=--a2b798e4-ae26-4d58-aab2-5901d0befef2
+      Content-Length:
+      - '547'
+      Authorization:
+      - Basic <BASIC_AUTH>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Length:
+      - '88'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 23 Nov 2022 15:34:58 GMT
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Ratelimit-Limit:
+      - '4000000'
+      X-Ratelimit-Remaining:
+      - '3999999'
+      X-Ratelimit-Reset:
+      - '1669217708848'
+      X-Recipient-Limit:
+      - '2000000'
+      X-Recipient-Remaining:
+      - '1999999'
+      X-Recipient-Reset:
+      - '1669217708849'
+      X-Server:
+      - influx
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":"<637e3da26eaa6_1489c18d8664f8@rosso.local.mail>","message":"Queued.
+        Thank you."}
+
+        '
+  recorded_at: Wed, 23 Nov 2022 15:34:58 GMT
+recorded_with: VCR 6.1.0
