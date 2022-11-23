@@ -1,7 +1,7 @@
 # action frozen_string_literal: true
 
-require_relative 'lists/add_member'
 require_relative 'lists/create'
+require_relative 'lists/create_member'
 require_relative 'lists/remove'
 require_relative 'lists/remove_member'
 require_relative 'lists/update_member'
@@ -29,8 +29,8 @@ module PewPew
     # @param vars [String] Additional JSON-encoded parameters
     # @param subscribed [String] `yes` (default) or `no`
     # @param upsert [String] `yes` or `no` (default)
-    def add_member(list_address, **data)
-      AddMember.new(api: api).call(list_address: list_address, **data)
+    def create_member(list_address, **data)
+      CreateMember.new(api: api).call(list_address: list_address, **data)
     end
 
     # Creates a new mailing list.

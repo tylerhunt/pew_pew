@@ -7,7 +7,7 @@ require_relative '../request'
 
 module PewPew
   class Lists
-    class AddMember < Request
+    class CreateMember < Request
       class Contract < PewPew::Contract
         SUSBSCRIBED_VALUES = %w[yes no].freeze
         UPSERT_VALUES = %w[yes no].freeze
