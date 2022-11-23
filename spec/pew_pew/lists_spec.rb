@@ -45,5 +45,23 @@ module PewPew
         lists.remove(address: address).value!
       end
     end
+
+    describe '#remove_member', vcr: { cassette_name: 'lists/remove_member' } do
+      let(:list_address) { "list@#{ENV.fetch('MAILGUN_DOMAIN')}" }
+      let(:address) { "member@#{ENV.fetch('MAILGUN_DOMAIN')}" }
+
+      before do
+        lists.create(address: list_address).value!
+        lists.add_member(list_address, address: address).value!
+      end
+
+      after do
+        lists.remove(address: list_address).value!
+      end
+
+      it 'removes a member from a mailing list' do
+        lists.remove_member(list_address, address: address).value!
+      end
+    end
   end
 end

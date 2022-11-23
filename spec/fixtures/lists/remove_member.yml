@@ -1,0 +1,222 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailgun.net/v3/lists
+    body:
+      encoding: US-ASCII
+      string: address=list%40<MAILGUN_DOMAIN>
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Authorization:
+      - Basic <BASIC_AUTH>
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '286'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 23 Nov 2022 04:09:37 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "list": {
+            "access_level": "readonly",
+            "address": "list@<MAILGUN_DOMAIN>",
+            "created_at": "Wed, 23 Nov 2022 04:09:37 -0000",
+            "description": "",
+            "members_count": 0,
+            "name": "",
+            "reply_preference": "list"
+          },
+          "message": "Mailing list has been created"
+        }
+  recorded_at: Wed, 23 Nov 2022 04:09:37 GMT
+- request:
+    method: post
+    uri: https://api.mailgun.net/v3/lists/list@<MAILGUN_DOMAIN>/members
+    body:
+      encoding: US-ASCII
+      string: address=member%40<MAILGUN_DOMAIN>
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Authorization:
+      - Basic <BASIC_AUTH>
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '173'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 23 Nov 2022 04:09:37 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "member": {
+            "address": "member@<MAILGUN_DOMAIN>",
+            "name": "",
+            "subscribed": true,
+            "vars": {}
+          },
+          "message": "Mailing list member has been created"
+        }
+  recorded_at: Wed, 23 Nov 2022 04:09:37 GMT
+- request:
+    method: delete
+    uri: https://api.mailgun.net/v3/lists/list@<MAILGUN_DOMAIN>/members/member@<MAILGUN_DOMAIN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Authorization:
+      - Basic <BASIC_AUTH>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '117'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 23 Nov 2022 04:09:37 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "member": {
+            "address": "member@<MAILGUN_DOMAIN>"
+          },
+          "message": "Mailing list member has been deleted"
+        }
+  recorded_at: Wed, 23 Nov 2022 04:09:38 GMT
+- request:
+    method: delete
+    uri: https://api.mailgun.net/v3/lists/list@<MAILGUN_DOMAIN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Authorization:
+      - Basic <BASIC_AUTH>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '88'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 23 Nov 2022 04:09:38 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "address": "list@<MAILGUN_DOMAIN>",
+          "message": "Mailing list has been removed"
+        }
+  recorded_at: Wed, 23 Nov 2022 04:09:38 GMT
+recorded_with: VCR 6.1.0
