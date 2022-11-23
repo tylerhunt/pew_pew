@@ -3,6 +3,7 @@
 require_relative 'api'
 
 require_relative 'lists'
+require_relative 'messages'
 
 module PewPew
   # The client object for accessing the Mailgun API.
@@ -21,6 +22,13 @@ module PewPew
     # @return [Lists] the lists resource
     def lists
       @lists ||= Lists.new(api: api)
+    end
+
+    # Provides access to the messages resource.
+    #
+    # @return [Messages] the messages resource
+    def messages
+      @messages ||= Messages.new(api: api)
     end
 
   protected
