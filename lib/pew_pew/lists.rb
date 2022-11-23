@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'lists/add_member'
 require_relative 'lists/create'
 require_relative 'lists/remove'
 
@@ -10,6 +11,24 @@ module PewPew
   class Lists
     def initialize(api:)
       self.api = api
+    end
+
+    # Adds a member to the mailing list.
+    #
+    # @example
+    #   client.lists.create_member(
+    #     'list@example.com',
+    #     address: 'member@example.com',
+    #   )
+    #
+    # @param list_address [String]
+    # @param address [String]
+    # @param name [String] Mailing list name
+    # @param vars [String] Additional JSON-encoded parameters
+    # @param subscribed [String] `yes` (default) or `no`
+    # @param upsert [String] `yes` or `no` (default)
+    def add_member(list_address, **data)
+      AddMember.new(api: api).call(list_address: list_address, **data)
     end
 
     # Creates a new mailing list.

@@ -6,11 +6,6 @@ require_relative '../request'
 module PewPew
   class Lists
     class Create < Request
-      # @param address [String] The search string
-      # @param name [String] The search string
-      # @param description [String] whether to do an exact match
-      # @param access_level [String] number of results
-      # @param reply_preference [String] number of results
       class Contract < PewPew::Contract
         ACCESS_LEVELS = %w[readonly members everyone].freeze
         REPLY_PREFERENCES = %w[list sender].freeze

@@ -5,6 +5,23 @@ module PewPew
   RSpec.describe Lists, :api_request do
     let(:lists) { described_class.new(api: api) }
 
+    describe '#add_member', vcr: { cassette_name: 'lists/add_member' } do
+      let(:list_address) { "list@#{ENV.fetch('MAILGUN_DOMAIN')}" }
+      let(:address) { "member@#{ENV.fetch('MAILGUN_DOMAIN')}" }
+
+      before do
+        lists.create(address: list_address).value!
+      end
+
+      after do
+        lists.remove(address: list_address).value!
+      end
+
+      it 'adds a member to a mailing list' do
+        lists.add_member(list_address, address: address).value!
+      end
+    end
+
     describe '#create', vcr: { cassette_name: 'lists/create' } do
       let(:address) { "test@#{ENV.fetch('MAILGUN_DOMAIN')}" }
 
