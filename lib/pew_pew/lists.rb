@@ -4,6 +4,7 @@ require_relative 'lists/add_member'
 require_relative 'lists/create'
 require_relative 'lists/remove'
 require_relative 'lists/remove_member'
+require_relative 'lists/update_member'
 
 module PewPew
   # Provide access to the mailing lists resource.
@@ -68,6 +69,24 @@ module PewPew
     # @param address [String] Member address
     def remove_member(list_address, **data)
       RemoveMember.new(api: api).call(list_address: list_address, **data)
+    end
+
+    # Updates a member on a mailing list.
+    #
+    # @example
+    #   client.lists.update_member(
+    #     list_address: 'list@example.com',
+    #     address: 'member@example.com',
+    #     subscribed: 'no',
+    #   )
+    #
+    # @param list_address [String] Mailing list address
+    # @param address [String] Member address
+    # @param name [String] Mailing list name
+    # @param vars [String] Additional JSON-encoded parameters
+    # @param subscribed [String] `yes` (default) or `no`
+    def update_member(list_address, **data)
+      UpdateMember.new(api: api).call(list_address: list_address, **data)
     end
 
   protected

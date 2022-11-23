@@ -41,6 +41,18 @@ module PewPew
       perform_request(request)
     end
 
+    # Execute an HTTP `PUT` request.
+    #
+    # @param path [String] request path relative to endpoint URI
+    # @param data [Hash] request data (multipart/form-data)
+    def put(path, data={})
+      request = Net::HTTP::Put.new(URI.join(uri, path))
+      request.basic_auth USERNAME, api_key
+      request.set_form_data data
+
+      perform_request(request)
+    end
+
   protected
 
     attr_accessor :api_key
