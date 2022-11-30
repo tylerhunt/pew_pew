@@ -15,7 +15,7 @@ module PewPew
         params do
           required(:list_address).filled(:string)
           required(:address).filled(:string)
-          optional(:name).filled(:string)
+          optional(:name).maybe(:string)
           optional(:vars).filled(:string)
           optional(:subscribed).filled(included_in?: SUSBSCRIBED_VALUES)
           optional(:upsert).filled(included_in?: UPSERT_VALUES)
