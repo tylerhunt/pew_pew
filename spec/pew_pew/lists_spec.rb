@@ -3,7 +3,7 @@ require 'support/vcr'
 
 module PewPew
   RSpec.describe Lists, :api_request do
-    let(:lists) { described_class.new(api: api) }
+    subject(:lists) { described_class.new(api: api) }
 
     describe '#create', vcr: { cassette_name: 'lists/create' } do
       let(:address) { "test@#{ENV.fetch('MAILGUN_DOMAIN')}" }

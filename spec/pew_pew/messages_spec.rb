@@ -5,7 +5,7 @@ require 'support/vcr'
 
 module PewPew
   RSpec.describe Messages, :api_request do
-    let(:messages) { described_class.new(api: api) }
+    subject(:messages) { described_class.new(api: api) }
 
     describe '#send', vcr: { cassette_name: 'messages/send' } do
       let(:address) { "test@#{domain}" }
