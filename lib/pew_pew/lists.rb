@@ -15,24 +15,6 @@ module PewPew
       self.api = api
     end
 
-    # Adds a member to the mailing list.
-    #
-    # @example
-    #   client.lists.create_member(
-    #     'list@example.com',
-    #     address: 'member@example.com',
-    #   )
-    #
-    # @param list_address [String] Mailing list address
-    # @param address [String] Member address
-    # @param name [String] Mailing list name
-    # @param vars [String] Additional JSON-encoded parameters
-    # @param subscribed [String] `yes` (default) or `no`
-    # @param upsert [String] `yes` or `no` (default)
-    def create_member(list_address, **data)
-      CreateMember.new(api: api).call(list_address: list_address, **data)
-    end
-
     # Creates a new mailing list.
     #
     # @example
@@ -57,18 +39,22 @@ module PewPew
       Remove.new(api: api).call(address: address)
     end
 
-    # Removes a member from a mailing list.
+    # Adds a member to the mailing list.
     #
     # @example
-    #   client.lists.remove_member(
-    #     list_address: 'list@example.com',
+    #   client.lists.create_member(
+    #     'list@example.com',
     #     address: 'member@example.com',
     #   )
     #
     # @param list_address [String] Mailing list address
     # @param address [String] Member address
-    def remove_member(list_address, **data)
-      RemoveMember.new(api: api).call(list_address: list_address, **data)
+    # @param name [String] Mailing list name
+    # @param vars [String] Additional JSON-encoded parameters
+    # @param subscribed [String] `yes` (default) or `no`
+    # @param upsert [String] `yes` or `no` (default)
+    def create_member(list_address, **data)
+      CreateMember.new(api: api).call(list_address: list_address, **data)
     end
 
     # Updates a member on a mailing list.
@@ -87,6 +73,20 @@ module PewPew
     # @param subscribed [String] `yes` (default) or `no`
     def update_member(list_address, **data)
       UpdateMember.new(api: api).call(list_address: list_address, **data)
+    end
+
+    # Removes a member from a mailing list.
+    #
+    # @example
+    #   client.lists.remove_member(
+    #     list_address: 'list@example.com',
+    #     address: 'member@example.com',
+    #   )
+    #
+    # @param list_address [String] Mailing list address
+    # @param address [String] Member address
+    def remove_member(list_address, **data)
+      RemoveMember.new(api: api).call(list_address: list_address, **data)
     end
 
   protected
