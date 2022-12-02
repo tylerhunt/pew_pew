@@ -1,0 +1,112 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailgun.net/v3/routes
+    body:
+      encoding: US-ASCII
+      string: expression=match_recipient%28%27test%40<MAILGUN_DOMAIN>%27%29
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Basic <BASIC_AUTH>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '270'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 02 Dec 2022 13:58:45 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "message": "Route has been created",
+          "route": {
+            "actions": [],
+            "created_at": "Fri, 02 Dec 2022 13:58:45 GMT",
+            "description": "",
+            "expression": "match_recipient('test@<MAILGUN_DOMAIN>')",
+            "id": "638a04953fb610ab34443429",
+            "priority": 0
+          }
+        }
+  recorded_at: Fri, 02 Dec 2022 13:58:45 GMT
+- request:
+    method: delete
+    uri: https://api.mailgun.net/v3/routes/638a04953fb610ab34443429
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Authorization:
+      - Basic <BASIC_AUTH>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '77'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 02 Dec 2022 13:58:46 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id": "638a04953fb610ab34443429",
+          "message": "Route has been deleted"
+        }
+  recorded_at: Fri, 02 Dec 2022 13:58:46 GMT
+recorded_with: VCR 6.1.0

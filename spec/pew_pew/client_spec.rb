@@ -15,5 +15,11 @@ module PewPew
         expect(client.messages).to be_a Messages
       end
     end
+
+    describe '#routes' do
+      it 'returns a routes resource' do
+        expect(client.routes).to be_a Routes
+      end
+    end
   end
 end
