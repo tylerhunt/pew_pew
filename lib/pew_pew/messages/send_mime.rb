@@ -16,11 +16,7 @@ module PewPew
           optional(:message).filled(:string)
         end
 
-        rule :to do
-          if value && !URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
+        rule(:to).validate(:email_format)
       end
 
       MIME_TYPE = 'application/octet-stream'

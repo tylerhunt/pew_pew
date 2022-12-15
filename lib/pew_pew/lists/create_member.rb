@@ -21,17 +21,8 @@ module PewPew
           optional(:upsert).filled(included_in?: UPSERT_VALUES)
         end
 
-        rule :list_address do
-          unless URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
-
-        rule :address do
-          unless URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
+        rule(:list_address).validate(:email_format)
+        rule(:address).validate(:email_format)
       end
 
       PATH = Addressable::Template.new('v3/lists/{address}/members')

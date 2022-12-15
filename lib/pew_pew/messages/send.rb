@@ -22,29 +22,10 @@ module PewPew
           optional(:inline).filled(:string)
         end
 
-        rule :from do
-          if value && !URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
-
-        rule :to do
-          if value && !URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
-
-        rule :cc do
-          if value && !URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
-
-        rule :bcc do
-          if value && !URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
+        rule(:from).validate(:email_format)
+        rule(:to).validate(:email_format)
+        rule(:cc).validate(:email_format)
+        rule(:bcc).validate(:email_format)
       end
 
       PATH = Addressable::Template.new('v3/{domain}/messages')

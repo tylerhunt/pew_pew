@@ -14,17 +14,8 @@ module PewPew
           required(:address).filled(:string)
         end
 
-        rule :list_address do
-          unless URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
-
-        rule :address do
-          unless URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
+        rule(:list_address).validate(:email_format)
+        rule(:address).validate(:email_format)
       end
 
       PATH = Addressable::Template.new(

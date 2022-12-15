@@ -18,11 +18,7 @@ module PewPew
           optional(:reply_preference).filled(included_in?: REPLY_PREFERENCES)
         end
 
-        rule :address do
-          unless URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
+        rule(:address).validate(:email_format)
       end
 
       PATH = 'v3/lists'

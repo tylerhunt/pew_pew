@@ -13,11 +13,7 @@ module PewPew
           required(:address).filled(:string)
         end
 
-        rule :address do
-          unless URI::MailTo::EMAIL_REGEXP.match?(value)
-            key.failure 'has invalid format'
-          end
-        end
+        rule(:address).validate(:email_format)
       end
 
       PATH = Addressable::Template.new('v3/lists/{address}')
