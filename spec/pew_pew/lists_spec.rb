@@ -17,6 +17,22 @@ module PewPew
       end
     end
 
+    describe '#update', vcr: { cassette_name: 'lists/update' } do
+      let(:address) { "test@#{ENV.fetch('MAILGUN_DOMAIN')}" }
+
+      before do
+        lists.create(address: address).value!
+      end
+
+      after do
+        lists.remove(address: address).value!
+      end
+
+      it 'updates mailing list with the given address' do
+        lists.update(list_address: address, name: 'new name').value!
+      end
+    end
+
     describe '#remove', vcr: { cassette_name: 'lists/remove' } do
       let(:address) { "test@#{ENV.fetch('MAILGUN_DOMAIN')}" }
 

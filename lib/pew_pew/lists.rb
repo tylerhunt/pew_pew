@@ -4,6 +4,7 @@ require_relative 'lists/create'
 require_relative 'lists/create_member'
 require_relative 'lists/remove'
 require_relative 'lists/remove_member'
+require_relative 'lists/update'
 require_relative 'lists/update_member'
 
 module PewPew
@@ -23,10 +24,25 @@ module PewPew
     # @param address [String] Mailing list address
     # @param name [String] Mailing list name
     # @param description [String] Mailing list description
-    # @param access_level [String] `list` (default) or `sender`
-    # @param reply_preference [String]
+    # @param access_level [String] `readonly` (default), `members`, `everyone`
+    # @param reply_preference [String] `list` (default) or `sender`
     def create(**data)
       Create.new(api: api).call(**data)
+    end
+
+    # Updates a mailing list.
+    #
+    # @example
+    #   client.lists.update(list_address: 'list@example.com')
+    #
+    # @param list_address [String] Mailing list address
+    # @param address [String] Mailing list address
+    # @param name [String] Mailing list name
+    # @param description [String] Mailing list description
+    # @param access_level [String] `readonly` (default), `members`, `everyone`
+    # @param reply_preference [String] `list` (default) or `sender`
+    def update(**data)
+      Update.new(api: api).call(**data)
     end
 
     # Removes a mailing list.

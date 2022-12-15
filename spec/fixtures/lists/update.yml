@@ -1,0 +1,173 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.mailgun.net/v3/lists
+    body:
+      encoding: US-ASCII
+      string: address=test%40<MAILGUN_DOMAIN>
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Basic <BASIC_AUTH>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '284'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 15 Dec 2022 18:57:53 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "list": {
+            "access_level": "readonly",
+            "address": "test@<MAILGUN_DOMAIN>",
+            "created_at": "Thu, 15 Dec 2022 18:57:53 -0000",
+            "description": "",
+            "members_count": 0,
+            "name": "",
+            "reply_preference": "list"
+          },
+          "message": "Mailing list has been created"
+        }
+  recorded_at: Thu, 15 Dec 2022 18:57:53 GMT
+- request:
+    method: put
+    uri: https://api.mailgun.net/v3/lists/test@<MAILGUN_DOMAIN>
+    body:
+      encoding: US-ASCII
+      string: name=new+name
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Authorization:
+      - Basic <BASIC_AUTH>
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '292'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 15 Dec 2022 18:57:54 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "list": {
+            "access_level": "readonly",
+            "address": "test@<MAILGUN_DOMAIN>",
+            "created_at": "Thu, 15 Dec 2022 18:57:53 -0000",
+            "description": "",
+            "members_count": 0,
+            "name": "new name",
+            "reply_preference": "list"
+          },
+          "message": "Mailing list has been updated"
+        }
+  recorded_at: Thu, 15 Dec 2022 18:57:53 GMT
+- request:
+    method: delete
+    uri: https://api.mailgun.net/v3/lists/test@<MAILGUN_DOMAIN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.mailgun.net
+      Authorization:
+      - Basic <BASIC_AUTH>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '86'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 15 Dec 2022 18:57:54 GMT
+      Server:
+      - TwistedWeb/20.3.0
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "address": "test@<MAILGUN_DOMAIN>",
+          "message": "Mailing list has been removed"
+        }
+  recorded_at: Thu, 15 Dec 2022 18:57:54 GMT
+recorded_with: VCR 6.1.0
