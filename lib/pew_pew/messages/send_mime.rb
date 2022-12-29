@@ -27,15 +27,17 @@ module PewPew
       end
 
       def call(**data)
+        headers = data.delete(:headers) || {}
+
         values = yield validate(data)
-        response = yield execute(**values)
+        response = yield execute(**values.merge(headers: headers))
 
         Success(response)
       end
 
     private
 
-      def execute(domain:, message:, **values)
+      def execute(domain:, message:, headers:, **values)
         message = Multipart::Post::UploadIO.new(
           StringIO.new(message),
           MIME_TYPE,
@@ -43,7 +45,7 @@ module PewPew
 
         api.post(
           PATH.expand(domain: domain),
-          values.merge(message: message),
+          values.merge(headers).merge(message: message),
           multipart: true,
         )
       end

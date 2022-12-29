@@ -43,11 +43,15 @@ module PewPew
     #   client.messages.send(
     #     to: 'recipient@example.com',
     #     message: '<MIME content>',
+    #     headers: {
+    #       'X-Custom-Header' => 'value',
+    #     }
     #   )
     #
     # @param domain [String] The account domain
     # @param to [String] Recipient address
     # @param message [String] MIME string of the message
+    # @param headers [Hash] Extra header values
     def send_mime(**data)
       SendMIME.new(api: api).call(**data)
     end
